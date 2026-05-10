@@ -59,38 +59,41 @@ button:hover {
 /* ===================== */
 /* MAIN 3-COLUMN LAYOUT */
 /* ===================== */
+/* ===================== */
+/* MAIN LAYOUT */
+/* ===================== */
 .settings-layout {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: flex-start;
-  gap: 30px;
-  width: 100%;
-  max-width: 1800px;
-  margin: 40px auto;
-  padding: 0 40px;
+  gap: 24px;
+  max-width: 1500px;
+  margin: 30px auto;
+  padding: 0 20px;
 }
 
 /* ===================== */
 /* LEFT INFO PANEL */
 /* ===================== */
 .info-box {
-  flex: 0 0 340px;
+  width: 280px;
   background: #141426;
-  padding: 30px;
-  border-radius: 14px;
+  padding: 22px;
+  border-radius: 12px;
   border: 1px solid #2a2a3a;
   text-align: left;
+  box-sizing: border-box;
 }
 
 .info-box h3 {
   margin-top: 0;
-  font-size: 24px;
-  margin-bottom: 20px;
+  margin-bottom: 14px;
+  font-size: 20px;
 }
 
 .info-box p {
-  font-size: 17px;
-  line-height: 1.8;
+  font-size: 15px;
+  line-height: 1.6;
   opacity: 0.9;
 }
 
@@ -98,37 +101,45 @@ button:hover {
 /* CENTER HUD */
 /* ===================== */
 .hud-display {
-  flex: 1;
+  width: 820px;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 
-/* BIG HUD IMAGE */
 .hud-display img {
   width: 100%;
-  max-width: 1100px;
-  min-width: 700px;
   border: 2px solid #333;
-  border-radius: 10px;
+  border-radius: 8px;
+  display: block;
 }
 
 /* ===================== */
-/* RIGHT SETTINGS PANEL */
+/* RIGHT CONTROL PANEL */
 /* ===================== */
 .vss-panel {
-  flex: 0 0 340px;
+  width: 280px;
   background: #141426;
-  padding: 30px;
-  border-radius: 14px;
+  padding: 22px;
+  border-radius: 12px;
   border: 1px solid #2a2a3a;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 10px;
   text-align: left;
+  box-sizing: border-box;
 }
 
-/* PANEL DISABLED */
+/* PANEL TITLE */
+.vss-panel h3 {
+  margin-top: 0;
+  margin-bottom: 14px;
+  font-size: 20px;
+}
+
+/* ===================== */
+/* PANEL ACTIVE STATES */
+/* ===================== */
 .vss-panel {
   opacity: 0.4;
   pointer-events: none;
