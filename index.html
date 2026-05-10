@@ -16,75 +16,100 @@
   </p>
 </header>
 
-<section class="hud-section">
+<!-- ===================== -->
+<!-- HUD CONTROL BUTTONS -->
+<!-- ===================== -->
+<section class="hud-controls">
 
   <div class="button-row">
     <button onclick="showDefault()">Default Vision HUD</button>
     <button onclick="showVSS()">VSS Adjusted HUD</button>
-  </div>
-
-  <div class="hud-display">
-    <img id="hudImage" src="default.png" alt="HUD Display">
-  </div>
-
-  <div class="toggle-row">
-    <button onclick="toggleVSS()">Toggle Full-Site VSS Simulation</button>
+    <button onclick="toggleVSS()">Toggle VSS Simulation</button>
   </div>
 
 </section>
 
-<hr>
-
+<!-- ===================== -->
+<!-- VSS SIMULATION SYSTEM -->
+<!-- ===================== -->
 <section class="settings-section">
 
-  <h2>Accessibility Settings</h2>
+  <div class="settings-layout">
 
-  <div class="settings-grid">
+    <!-- LEFT: INFO -->
+    <div class="info-box">
 
-    <!-- LEFT: ACCESSIBILITY -->
-    <div class="settings-box">
+      <h3>What is Visual Snow Syndrome?</h3>
 
-      <h3>General Accessibility</h3>
+      <p>
+        Visual Snow Syndrome (VSS) is a neurological perceptual condition where individuals
+        experience persistent visual static, light sensitivity, and visual distortion effects.
+      </p>
 
-      <label>Accessibility Preset</label>
-      <select>
-        <option>Default</option>
-        <option>VSS Safe Mode</option>
-        <option>High Clarity Mode</option>
-      </select>
-
-      <label>Bloom Reduction</label>
-      <input type="range">
-
-      <label>UI Contrast</label>
-      <input type="range">
-
-      <label>Motion Effects</label>
-      <input type="range">
+      <p>
+        This prototype explores how game HUD systems can be adapted to reduce perceptual overload
+        and improve readability for affected users.
+      </p>
 
     </div>
 
-    <!-- RIGHT: VSS -->
+    <!-- CENTER: HUD IMAGE -->
+    <div class="hud-display">
+      <img id="hudImage" src="default.png" alt="HUD Display">
+    </div>
+
+    <!-- RIGHT: CONTROLS -->
     <div class="settings-box vss-panel">
 
       <h3>VSS Simulation Settings</h3>
 
       <label>VSS Intensity</label>
-      <input type="range" id="vssSlider" min="0" max="100" value="0" disabled>
+      <input type="range" id="vssSlider" min="0" max="100" value="50" disabled>
 
       <label>Static / Noise</label>
-      <input type="range" id="noiseSlider" min="0" max="100" value="0">
+      <input type="range" id="noiseSlider" min="0" max="100" value="50">
 
       <label>Blur</label>
-      <input type="range" id="blurSlider" min="0" max="100" value="0">
+      <input type="range" id="blurSlider" min="0" max="100" value="50">
 
       <label>Floaters</label>
-      <input type="range" id="floatersSlider" min="0" max="100" value="0">
+      <input type="range" id="floatersSlider" min="0" max="100" value="50">
 
       <label>Exposure / Glare</label>
-      <input type="range" id="glareSlider" min="0" max="100" value="0">
+      <input type="range" id="glareSlider" min="0" max="100" value="50">
 
     </div>
+
+  </div>
+
+</section>
+
+<!-- ===================== -->
+<!-- ACCESSIBILITY SETTINGS -->
+<!-- ===================== -->
+<section class="settings-section">
+
+  <h2>Accessibility Settings</h2>
+
+  <div class="settings-box">
+
+    <h3>General Accessibility</h3>
+
+    <label>Accessibility Preset</label>
+    <select>
+      <option>Default</option>
+      <option>VSS Safe Mode</option>
+      <option>High Clarity Mode</option>
+    </select>
+
+    <label>Bloom Reduction</label>
+    <input type="range">
+
+    <label>UI Contrast</label>
+    <input type="range">
+
+    <label>Motion Effects</label>
+    <input type="range">
 
   </div>
 
@@ -95,3 +120,6 @@
 </footer>
 
 <script src="script.js"></script>
+
+</body>
+</html>
