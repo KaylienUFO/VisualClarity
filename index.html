@@ -39,47 +39,52 @@
 
   <h2>Accessibility Settings</h2>
 
-  <div class="settings-box">
+  <div class="settings-grid">
 
-    <label>Accessibility Preset</label>
-    <select>
-      <option>Default</option>
-      <option>VSS Safe Mode</option>
-      <option>High Clarity Mode</option>
-    </select>
+    <!-- LEFT: ACCESSIBILITY -->
+    <div class="settings-box">
 
-    <label>Bloom Reduction</label>
-    <input type="range">
+      <h3>General Accessibility</h3>
 
-    <label>Visual Noise</label>
-    <input type="range">
+      <label>Accessibility Preset</label>
+      <select>
+        <option>Default</option>
+        <option>VSS Safe Mode</option>
+        <option>High Clarity Mode</option>
+      </select>
 
-    <label>UI Contrast</label>
-    <input type="range">
+      <label>Bloom Reduction</label>
+      <input type="range">
 
-    <label>Motion Effects</label>
-    <input type="range">
+      <label>UI Contrast</label>
+      <input type="range">
 
-    <label>VSS Intensity</label>
-    <input type="range" id="vssSlider" min="0" max="100" value="0" disabled>
+      <label>Motion Effects</label>
+      <input type="range">
 
-  </div>
+    </div>
 
-  <div class="settings-box vss-panel">
+    <!-- RIGHT: VSS -->
+    <div class="settings-box vss-panel">
 
-    <h3>VSS Simulation Settings</h3>
+      <h3>VSS Simulation Settings</h3>
 
-    <label>Static / Noise</label>
-    <input type="range" id="noiseSlider" min="0" max="100" value="0">
+      <label>VSS Intensity</label>
+      <input type="range" id="vssSlider" min="0" max="100" value="0" disabled>
 
-    <label>Blur</label>
-    <input type="range" id="blurSlider" min="0" max="100" value="0">
+      <label>Static / Noise</label>
+      <input type="range" id="noiseSlider" min="0" max="100" value="0">
 
-    <label>Floaters</label>
-    <input type="range" id="floatersSlider" min="0" max="100" value="0">
+      <label>Blur</label>
+      <input type="range" id="blurSlider" min="0" max="100" value="0">
 
-    <label>Exposure / Glare</label>
-    <input type="range" id="glareSlider" min="0" max="100" value="0">
+      <label>Floaters</label>
+      <input type="range" id="floatersSlider" min="0" max="100" value="0">
+
+      <label>Exposure / Glare</label>
+      <input type="range" id="glareSlider" min="0" max="100" value="0">
+
+    </div>
 
   </div>
 
@@ -90,5 +95,3 @@
 </footer>
 
 <script src="script.js"></script>
-</body>
-</html>
