@@ -111,29 +111,56 @@ button:hover {
 /* ===================== */
 /* SETTINGS SECTION (GENERAL) */
 /* ===================== */
-.settings-section {
-  padding: 40px 20px;
-  text-align: center;
-}
-
-/* INPUTS */
-select, input[type="range"] {
+.settings-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
   width: 100%;
+  max-width: 1400px;
+  margin: 20px auto;
+  padding: 0 20px;
 }
 
-/* ===================== */
-/* VSS MODE EFFECTS */
-/* ===================== */
-.vss-mode {
-  filter: blur(0.7px) contrast(1.2) brightness(1.1);
+/* LEFT */
+.info-box {
+  flex: 0 0 280px;
+  background: #141426;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #2a2a3a;
+  text-align: left;
 }
 
-/* DISABLE PANEL WHEN OFF */
+/* CENTER (THIS IS THE IMPORTANT FIX) */
+.hud-display {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* FORCE LARGE IMAGE */
+.hud-display img {
+  width: 100%;
+  max-width: 900px;
+  min-width: 600px;
+  border: 2px solid #333;
+  border-radius: 6px;
+}
+
+/* RIGHT */
 .vss-panel {
-  opacity: 0.4;
-  pointer-events: none;
+  flex: 0 0 280px;
+  background: #141426;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #2a2a3a;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: left;
 }
-
 .vss-mode .vss-panel {
   opacity: 1;
   pointer-events: auto;
