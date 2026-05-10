@@ -17,7 +17,9 @@ body {
   opacity: 0.8;
 }
 
-/* HUD */
+/* ===================== */
+/* HUD CONTROLS */
+/* ===================== */
 .hud-section {
   text-align: center;
   padding: 20px;
@@ -42,100 +44,20 @@ button:hover {
   background: #2a2a44;
 }
 
-.hud-display img {
-  width: 80%;
-  max-width: 100%;
-  border: 2px solid #333;
-  margin-top: 10px;
-}
-
-/* SETTINGS LAYOUT */
-.settings-section {
-  padding: 40px 20px;
-  text-align: center;
-}
-
-.settings-grid {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-/* BOTH PANELS LOOK IDENTICAL */
-.settings-box {
-  width: 420px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  text-align: left;
-  background: #141426;
-  padding: 20px;
-  border-radius: 10px;
-  border: 1px solid #2a2a3a;
-}
-
-.settings-box h3 {
-  margin-top: 0;
-  font-size: 16px;
-  color: #fff;
-}
-
-select, input[type="range"] {
-  width: 100%;
-}
-
-/* VSS PANEL DISABLED STATE */
-.vss-panel {
-  opacity: 0.4;
-  pointer-events: none;
-}
-
-/* ENABLE WHEN ACTIVE */
-.vss-mode .vss-panel {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-/* NOISE OVERLAY (STATIC) */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background: url("noise.png");
-  opacity: 0;
-  transition: opacity 0.2s ease;
-}
-
-.vss-mode body::before {
-  opacity: var(--noise, 0);
-}
-
-/* FLOATERS LAYER */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
-  background-size: 80px 80px;
-  opacity: var(--floaters, 0);
-}
-
-/* 3-COLUMN LAYOUT */
+/* ===================== */
+/* 3 COLUMN MAIN LAYOUT */
+/* ===================== */
 .settings-layout {
   display: flex;
   justify-content: center;
   align-items: flex-start;
   gap: 20px;
-  flex-wrap: wrap;
   margin-top: 20px;
 }
 
-/* LEFT TEXT PANEL */
+/* LEFT INFO */
 .info-box {
-  width: 320px;
+  width: 300px;
   background: #141426;
   padding: 20px;
   border-radius: 10px;
@@ -153,18 +75,90 @@ body::after {
   opacity: 0.9;
 }
 
-/* CENTER IMAGE (override sizing slightly if needed) */
+/* CENTER HUD (FIXED + RESPONSIVE) */
 .hud-display {
-  width: 420px;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 500px;
 }
 
 .hud-display img {
   width: 100%;
+  max-width: 800px;
   border: 2px solid #333;
   border-radius: 6px;
 }
 
-/* RIGHT PANEL already exists but keep consistent */
+/* RIGHT CONTROLS */
 .vss-panel {
-  width: 320px;
+  width: 300px;
+  background: #141426;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #2a2a3a;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: left;
+}
+
+.vss-panel h3 {
+  margin-top: 0;
+}
+
+/* ===================== */
+/* SETTINGS SECTION (GENERAL) */
+/* ===================== */
+.settings-section {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+/* INPUTS */
+select, input[type="range"] {
+  width: 100%;
+}
+
+/* ===================== */
+/* VSS MODE EFFECTS */
+/* ===================== */
+.vss-mode {
+  filter: blur(0.7px) contrast(1.2) brightness(1.1);
+}
+
+/* DISABLE PANEL WHEN OFF */
+.vss-panel {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.vss-mode .vss-panel {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ===================== */
+/* NOISE OVERLAY */
+/* ===================== */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: url("noise.png");
+  opacity: var(--noise, 0);
+  transition: opacity 0.2s ease;
+}
+
+/* FLOATERS */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 80px 80px;
+  opacity: var(--floaters, 0);
 }
