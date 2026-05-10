@@ -135,16 +135,21 @@ button:hover {
 }
 
 /* ===================== */
-/* NOISE OVERLAY */
+/* STATIC / NOISE */
 /* ===================== */
 
 body::before {
   content: "";
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   pointer-events: none;
   background: url("noise.png");
+  background-size: cover;
   opacity: var(--noise, 0);
+  z-index: 9999;
   transition: opacity 0.2s ease;
 }
 
@@ -155,13 +160,22 @@ body::before {
 body::after {
   content: "";
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   pointer-events: none;
-  background: radial-gradient(
-    circle,
-    rgba(255,255,255,0.05) 1px,
-    transparent 1px
-  );
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255,255,255,0.05) 1px,
+      transparent 1px
+    );
+
   background-size: 80px 80px;
+
   opacity: var(--floaters, 0);
+
+  z-index: 9998;
 }
