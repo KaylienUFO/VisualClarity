@@ -122,3 +122,49 @@ body::after {
   background-size: 80px 80px;
   opacity: var(--floaters, 0);
 }
+
+/* 3-COLUMN LAYOUT */
+.settings-layout {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+/* LEFT TEXT PANEL */
+.info-box {
+  width: 320px;
+  background: #141426;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #2a2a3a;
+  text-align: left;
+}
+
+.info-box h3 {
+  margin-top: 0;
+}
+
+.info-box p {
+  font-size: 14px;
+  line-height: 1.5;
+  opacity: 0.9;
+}
+
+/* CENTER IMAGE (override sizing slightly if needed) */
+.hud-display {
+  width: 420px;
+}
+
+.hud-display img {
+  width: 100%;
+  border: 2px solid #333;
+  border-radius: 6px;
+}
+
+/* RIGHT PANEL already exists but keep consistent */
+.vss-panel {
+  width: 320px;
+}
