@@ -24,10 +24,20 @@ function toggleVSS() {
 
   vssSlider.disabled = !enabled;
 
-  document.querySelector(".vss-panel").style.pointerEvents = enabled ? "auto" : "none";
-document.querySelector(".vss-panel").style.opacity = enabled ? "1" : "0.4";
+  panel.style.pointerEvents = enabled ? "auto" : "none";
+  panel.style.opacity = enabled ? "1" : "0.4";
 
-  if (!enabled) {
+  if (enabled) {
+    // 🔥 default active simulation state (50%)
+    vssSlider.value = 50;
+    noiseSlider.value = 50;
+    blurSlider.value = 50;
+    floatersSlider.value = 50;
+    glareSlider.value = 50;
+
+    updateVSS(); // apply immediately
+  } else {
+    // reset everything
     vssSlider.value = 0;
     noiseSlider.value = 0;
     blurSlider.value = 0;
@@ -65,6 +75,7 @@ function updateVSS() {
   document.body.style.setProperty("--floaters", floaters);
 }
 
+/* SLIDER EVENTS */
 [noiseSlider, blurSlider, floatersSlider, glareSlider].forEach(slider => {
   slider.addEventListener("input", updateVSS);
 });
