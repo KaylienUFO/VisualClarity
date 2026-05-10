@@ -16,7 +16,7 @@ function showVSS() {
   document.getElementById("hudImage").src = "vss.png";
 }
 
-/* TOGGLE VSS MODE */
+/* TOGGLE VSS */
 function toggleVSS() {
   document.body.classList.toggle("vss-mode");
 
@@ -24,16 +24,23 @@ function toggleVSS() {
 
   vssSlider.disabled = !enabled;
 
-  panel.style.pointerEvents = enabled ? "auto" : "none";
-  panel.style.opacity = enabled ? "1" : "0.4";
+  document.querySelector(".vss-panel").style.pointerEvents = enabled ? "auto" : "none";
+document.querySelector(".vss-panel").style.opacity = enabled ? "1" : "0.4";
 
   if (!enabled) {
     vssSlider.value = 0;
+    noiseSlider.value = 0;
+    blurSlider.value = 0;
+    floatersSlider.value = 0;
+    glareSlider.value = 0;
+
     document.body.style.filter = "";
+    document.body.style.setProperty("--noise", 0);
+    document.body.style.setProperty("--floaters", 0);
   }
 }
 
-/* INTENSITY SLIDER */
+/* VSS INTENSITY */
 vssSlider.addEventListener("input", () => {
   let v = vssSlider.value / 100;
 
@@ -41,11 +48,12 @@ vssSlider.addEventListener("input", () => {
     `blur(${v * 1.5}px) contrast(${1 + v * 0.4}) brightness(${1 + v * 0.1})`;
 });
 
-/* EXTRA SETTINGS */
+/* FULL CONTROL SYSTEM */
 function updateVSS() {
+  let noise = noiseSlider.value / 100;
   let blur = blurSlider.value / 100;
-  let glare = glareSlider.value / 100;
   let floaters = floatersSlider.value / 100;
+  let glare = glareSlider.value / 100;
 
   document.body.style.filter = `
     blur(${blur * 2}px)
@@ -53,9 +61,10 @@ function updateVSS() {
     brightness(${1 + glare * 0.3})
   `;
 
+  document.body.style.setProperty("--noise", noise);
   document.body.style.setProperty("--floaters", floaters);
 }
 
-[blurSlider, glareSlider, floatersSlider].forEach(slider => {
+[noiseSlider, blurSlider, floatersSlider, glareSlider].forEach(slider => {
   slider.addEventListener("input", updateVSS);
 });
