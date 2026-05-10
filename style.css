@@ -1,0 +1,93 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0b0b14;
+  color: white;
+}
+
+/* HEADER */
+.header {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.header p {
+  max-width: 700px;
+  margin: auto;
+  opacity: 0.8;
+}
+
+/* HUD */
+.hud-section {
+  text-align: center;
+  padding: 20px;
+}
+
+.button-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+button {
+  background: #1c1c2e;
+  color: white;
+  border: 1px solid #333;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #2a2a44;
+}
+
+.hud-display img {
+  width: 80%;
+  max-width: 900px;
+  border: 2px solid #333;
+  margin-top: 10px;
+}
+
+/* SETTINGS */
+.settings-section {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.settings-box {
+  max-width: 500px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: left;
+  background: #141426;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+select, input[type="range"] {
+  width: 100%;
+}
+
+/* VSS MODE */
+.vss-mode {
+  filter: blur(1px) contrast(1.2) brightness(1.1);
+}
+
+/* DISABLED PANEL */
+.vss-panel {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* FLOATERS */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: var(--floaters, 0);
+  background: url("noise.png");
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Visual Clarity HUD System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header">
+  <h1>Visual Snow Syndrome Clarity HUD System</h1>
+  <p>
+    A UI accessibility prototype exploring visual overload and perceptual clarity in game HUD design.
+  </p>
+</header>
+
+<section class="hud-section">
+
+  <div class="button-row">
+    <button onclick="showDefault()">Default Vision HUD</button>
+    <button onclick="showVSS()">VSS Adjusted HUD</button>
+  </div>
+
+  <div class="hud-display">
+    <img id="hudImage" src="default.png" alt="HUD Display">
+  </div>
+
+  <div class="toggle-row">
+    <button onclick="toggleVSS()">Toggle Full-Site VSS Simulation</button>
+  </div>
+
+</section>
+
+<hr>
+
+<section class="settings-section">
+
+  <h2>Accessibility Settings</h2>
+
+  <div class="settings-box">
+
+    <label>Accessibility Preset</label>
+    <select>
+      <option>Default</option>
+      <option>VSS Safe Mode</option>
+      <option>High Clarity Mode</option>
+    </select>
+
+    <label>Bloom Reduction</label>
+    <input type="range">
+
+    <label>Visual Noise</label>
+    <input type="range">
+
+    <label>UI Contrast</label>
+    <input type="range">
+
+    <label>Motion Effects</label>
+    <input type="range">
+
+    <label>VSS Intensity</label>
+    <input type="range" id="vssSlider" min="0" max="100" value="0" disabled>
+
+  </div>
+
+  <div class="settings-box vss-panel">
+
+    <h3>VSS Simulation Settings</h3>
+
+    <label>Static / Noise</label>
+    <input type="range" id="noiseSlider" min="0" max="100" value="0">
+
+    <label>Blur</label>
+    <input type="range" id="blurSlider" min="0" max="100" value="0">
+
+    <label>Floaters</label>
+    <input type="range" id="floatersSlider" min="0" max="100" value="0">
+
+    <label>Exposure / Glare</label>
+    <input type="range" id="glareSlider" min="0" max="100" value="0">
+
+  </div>
+
+</section>
+
+<footer>
+  <p>GDV210 People & Games — Accessibility UI Prototype</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
