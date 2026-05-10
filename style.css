@@ -49,15 +49,22 @@ button:hover {
   margin-top: 10px;
 }
 
-/* SETTINGS */
+/* SETTINGS LAYOUT */
 .settings-section {
   padding: 40px 20px;
   text-align: center;
 }
 
+.settings-grid {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* BOTH PANELS LOOK IDENTICAL */
 .settings-box {
-  max-width: 500px;
-  margin: 20px auto;
+  width: 420px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -65,29 +72,53 @@ button:hover {
   background: #141426;
   padding: 20px;
   border-radius: 10px;
+  border: 1px solid #2a2a3a;
+}
+
+.settings-box h3 {
+  margin-top: 0;
+  font-size: 16px;
+  color: #fff;
 }
 
 select, input[type="range"] {
   width: 100%;
 }
 
-/* VSS MODE */
-.vss-mode {
-  filter: blur(0.7px) contrast(1.2) brightness(1.1);
-}
-
-/* DISABLED PANEL */
+/* VSS PANEL DISABLED STATE */
 .vss-panel {
   opacity: 0.4;
   pointer-events: none;
 }
 
-/* FLOATERS */
+/* ENABLE WHEN ACTIVE */
+.vss-mode .vss-panel {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* NOISE OVERLAY (STATIC) */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   pointer-events: none;
-  opacity: var(--floaters, 0);
   background: url("noise.png");
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.vss-mode body::before {
+  opacity: var(--noise, 0);
+}
+
+/* FLOATERS LAYER */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 80px 80px;
+  opacity: var(--floaters, 0);
 }
