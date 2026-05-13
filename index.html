@@ -3,68 +3,66 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Visual Clarity HUD System</title>
+  <title>VSS Clarity System</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+
+<div class="noise-overlay"></div>
+
+<div class="page-content">
+  
 <header class="header">
-  <h1>Visual Snow Syndrome Clarity HUD System</h1>
+
+  
+  <h1>Visual Snow Syndrome: Clarity Settings System</h1>
+  <p2>
+    <b>A UI accessibility artefact exploring VSS-specific design barriers in video games. </b>
+  </p2>
   <p>
-    A UI accessibility prototype exploring visual and perceptual overload in game HUD design.
+    <i>1080p native resolution zoom in or out to accommodate site scale</i>
   </p>
 </header>
 
-<!-- ===================== -->
 <!-- HUD CONTROL BUTTONS -->
-<!-- ===================== -->
 <section class="hud-controls">
-
   <div class="button-row">
-    <button onclick="showDefault()">Default Vision HUD</button>
-    <button onclick="showVSS()">VSS Adjusted HUD</button>
-    <button onclick="toggleVSS()">Toggle VSS Simulation</button>
+    <button onclick="showDefault()">Default Settings</button>
+    <button onclick="toggleVSS()">Toggle <b>Site-Wide</b> VSS Simulation</button>
+    <button onclick="showVSS()">VSS Safe Settings</button>
   </div>
-
 </section>
 
-<!-- ===================== -->
-<!-- VSS SIMULATION SYSTEM -->
-<!-- ===================== -->
+<!-- VSS SYSTEM -->
 <section class="settings-section">
 
   <div class="settings-layout">
 
-    <!-- LEFT: INFO -->
     <div class="info-box">
-
-      <h3>What is Visual Snow Syndrome?</h3>
-
+      <h3>What is Visual Snow Syndrome and how do games effect it?</h3>
       <p>
         Visual Snow Syndrome (VSS) is a neurological perceptual condition where individuals
         experience persistent visual static, light sensitivity, and visual distortion effects.
       </p>
-
       <p>
-        This prototype explores how game HUD systems can be adapted to reduce perceptual overload
-        and improve readability for VSS affected users.
+        Mainstream games often assume a "default visual experience" that not all players share, priortizing cinematic desity over readabiltiy, leading to unintentionally exculding users with visual conditions. This artefact explores how game HUD and graphic systems can be adapted to reduce visual overload, improve readability, and introduce game accessibility; specifically for VSS players.
       </p>
-
     </div>
 
-    <!-- CENTER: HUD IMAGE -->
     <div class="hud-display">
       <img id="hudImage" src="default.png" alt="HUD Display">
+      
+      
     </div>
 
-    <!-- RIGHT: CONTROLS -->
     <div class="settings-box vss-panel">
 
       <h3>VSS Simulation Settings</h3>
 
-      <label>VSS Intensity</label>
-      <input type="range" id="vssSlider" min="0" max="100" value="50" disabled>
+      <!-- <label>VSS Intensity</label>-->
+      <!-- <input type="range" id="vssSlider" min="0" max="100" value="50" disabled>-->
 
       <label>Static / Noise</label>
       <input type="range" id="noiseSlider" min="0" max="100" value="50">
@@ -75,8 +73,11 @@
       <label>Floaters</label>
       <input type="range" id="floatersSlider" min="0" max="100" value="50">
 
-      <label>Exposure / Glare</label>
+      <label>Exposure</label>
       <input type="range" id="glareSlider" min="0" max="100" value="50">
+      
+      <label>Movement</label>
+<input type="range" id="movementSlider" min="0" max="100" value="50">
 
     </div>
 
@@ -84,40 +85,287 @@
 
 </section>
 
+<!-- ARROWS -->
+<div class="arrows">
+  <p>↓↓↓↓↓↓↓↓↓↓↓↓↓↓</p>
+</div>
+
 <!-- ===================== -->
 <!-- ACCESSIBILITY SETTINGS -->
 <!-- ===================== -->
+
+
 <section class="settings-section">
 
-  <h2>Accessibility Settings</h2>
+  <section class="writing">
+  <h2><span style="background-color: #2c304a;">  Conceptual</span>  Accessibility Settings</h2>
+    <p>
+      To make these changes viable in gaming, accessibility needs to be faster to access. <br>
+      Below is a non-functioning settings prototype that would be used in-game to create the above accessibility display <br>changes, exploring preset easability with optional advanced controls for user-intuitive design.
+    </p>
+  </section>
 
-  <div class="settings-box">
+  <div class="settings-menu">
 
-    <h3>General Accessibility</h3>
+    <div class="sidebar">
+      <button class="tab">General</button>
+      <button class="tab active">Accessibility</button>
+      <button class="tab">Graphics</button>
+      <button class="tab">Audio</button>
+      <button class="tab">Controls</button>
+    </div>
 
-    <label>Accessibility Preset</label>
-    <select>
-      <option>Default</option>
-      <option>VSS Safe Mode</option>
-      <option>High Clarity Mode</option>
-    </select>
+    <div class="settings-panel preset-default">
 
-    <label>Bloom Reduction</label>
-    <input type="range">
+      <h2>Accessibility Settings</h2>
 
-    <label>UI Contrast</label>
-    <input type="range">
+      <!-- PRESET -->
+      <div class="setting-row">
+        <span>Accessibility Preset</span>
 
-    <label>Motion Effects</label>
-    <input type="range">
+        <div class="preset-row">
+          <button class="preset-btn active" onclick="applyPreset('default')">None</button>
+          <button class="preset-btn" onclick="applyPreset('vss')">VSS Safe</button>
+          <button class="preset-btn" onclick="applyPreset('low')">Low Stim</button>
+          <button class="preset-btn" onclick="applyPreset('high')">High Contrast</button>
+        </div>
+      </div>
+      <!-- ADVANCED TOGGLE -->
+      <div class="setting-row advanced-toggle-row">
+  <span>Advanced Settings</span>
+  <label class="switch">
+          <input type="checkbox" id="advancedToggle">
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <!-- ===================== -->
+      <!-- VISUAL CLARITY -->
+      <!-- ===================== -->
+
+      <div class="settings-group advanced-only">
+        <h4 class="accordion-header">Visual Clarity + </h4>
+
+        <div class="accordion-content">
+
+          <div class="setting-row">
+            <span>UI Contrast</span>
+            <input type="range" id="uiContrast">
+          </div>
+
+          <div class="setting-row">
+            <span>Font Size</span>
+            <input type="range" id="fontSize">
+          </div>
+
+          <div class="setting-row">
+            <span>HUD Scale</span>
+            <input type="range" id="hudScale">
+          </div>
+
+          <div class="setting-row">
+            <span>Screen Dim</span>
+            <input type="range" id="brightness">
+          </div>
+          
+          
+
+        </div>
+      </div>
+
+      <!-- ===================== -->
+      <!-- VISUAL EFFECTS -->
+      <!-- ===================== -->
+
+      <div class="settings-group advanced-only">
+        <h4 class="accordion-header">Visual Effects + </h4>
+
+        <div class="accordion-content">
+
+          <div class="setting-row">
+            <span>Bloom Effects</span>
+            <label class="switch">
+              <input type="checkbox" id="bloom">
+              <span class="slider"></span>
+            </label>
+          </div>
+
+<div class="setting-row">
+            <span>Flashing Effects</span>
+            <label class="switch">
+              <input type="checkbox" id="flash">
+              <span class="slider"></span>
+            </label>
+          </div>
+          
+          <div class="setting-row">
+            <span>Static Overlay</span>
+            <input type="range" id="noiseIntensity">
+          </div>
+
+          <div class="setting-row">
+            <span>Exposure</span>
+            <input type="range" id="glare">
+          </div>
+
+          <div class="setting-row">
+            <span>Saturation</span>
+            <input type="range" id="saturation">
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ===================== -->
+      <!-- MOTION REDUCTION -->
+      <!-- ===================== -->
+
+      <div class="settings-group advanced-only">
+        <h4 class="accordion-header">Motion Reduction + </h4>
+
+        <div class="accordion-content">
+
+          <div class="setting-row">
+            <span>Screen Shake</span>
+            <label class="switch">
+              <input type="checkbox" id="shake">
+              <span class="slider"></span>
+            </label>
+          </div>
+
+          <div class="setting-row">
+            <span>Camera Motion</span>
+            <label class="switch">
+              <input type="checkbox" id="cameraMotion">
+              <span class="slider"></span>
+            </label>
+          </div>
+          
+          <div class="setting-row">
+  <span>Motion Blur</span>
+  <label class="switch">
+    <input type="checkbox" id="motionBlur">
+    <span class="slider"></span>
+  </label>
+</div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+<br>
+<br>
+<!-- VSS EXPLANATION -->
+<section class="vss-explanation">
+<section class="writing">
+  <h2>How do these settings <span style="background-color: #2c304a;">  support VSS-affected users? </span></h2>
+  <p>
+      To understand the necessity of these settings, its important to recognize the visual differences present in <br> VSS before attempting to provide a visual fix. Below are observed side effects of VSS with designed solutions <br> catered to the specifc issue; which is only then adapted to a customizable setting.
+    </p>
+  <br>
+</section>
+
+  <div class="vss-table">
+
+    <div class="vss-row header">
+      <span><b>Problem</b></span>
+      <span><b>Design Response</b></span>
+      <span><b>Setting</b></span>
+    </div>
+
+    <div class="vss-row">
+      <span>Low contrast between HUD elements and environments can make objects/elements difficult to distinguish, especially during a visual overload.</span>
+      <span>Allow players to increase contrast between interface elements and the game world to increase readability and visual separation.</span>
+      <span>UI Contrast</span>
+    </div>
+    
+    <div class="vss-row">
+      <span>Small text can become difficult to read when vision is blurred or distorted, causing strained eyes and irritation.</span>
+      <span>Enable players to enlarge the interface and menu text for improved readability and reduced eye strain.</span>
+      <span>Font Size</span>
+    </div>
+
+    <div class="vss-row">
+      <span>Important HUD information may become visually lost during intense effects or cluttered scenes due to an inability to focus clearly.</span>
+      <span>Let players increase HUD size so critical gameplay elements remain visible and understandable.</span>
+      <span>HUD Scale</span>
+    </div>
+
+    <div class="vss-row">
+      <span>General environments and screens can cause excessive brightness to VSS users, as VSS is often accompanied by Photophobia (light sensitivity) this leads to visual discomfort and fatigue.</span>
+      <span>Reduce overall screen brightness to create a softer and less visually aggressive experience.</span>
+      <span>Screen Dim</span>
+    </div>
+
+    <div class="vss-row">
+      <span>With Photophobia, strong bloom effects can obscure details, and can overwhelm the scene.</span>
+      <span>Give players the option to disable bloom effects for clearer image readability.</span>
+      <span>Bloom Effect Toggle</span>
+    </div>
+    
+    
+    <div class="vss-row">
+      <span>Motion blur can reduce visual clarity during movement, and can heighten nausea and motion sickness; specifically for VSS users affected heavily by Palinopsia (persistent afterimages).</span>
+      <span>Allow motion blur to be disabled to maintain sharper visuals, visual stability, and reduce double blur for VSS players.</span>
+      <span>Motion Blur Toggle</span>
+    </div>
+
+    <div class="vss-row">
+      <span>Constant static on the eye, paired with looking at crisp solid coloured environments, can cause eye irritation and headaches if the static is focused on for too long.</span>
+      <span>Surprisingly, some people with VSS have found using static overlay plugins on devices can actually reduce real VSS static, with the artificial overlay almost freezing their vision’s static. Letting players have the option to turn on an adjustable static overlay provides visual relief to users.</span>
+      <span>Static Overlay</span>
+    </div>
+
+    <div class="vss-row">
+      <span>The visual exposure that VSS users have is increased by Photophobia, but also by a blue field entoptic phenomenon (tiny white flickering dots). These visual disturbances are typically caused by colour intensity and glare. On the otherside, when the screen is too dark it can appear illegiable due to VSS Nyctalopia (night blindness).</span>
+      <span>Allowing players to reduce or increase the exposure to their specific needs improves personal visual comfort per user.</span>
+      <span>Exposure</span>
+    </div>
+
+    <div class="vss-row">
+      <span>A per user problem is colour saturation, although not affecting all, some VSS users can have colours appear more or less saturated due to their visual static in combination with other symptoms. </span>
+      <span>The option to increase or reduce screen saturation can help certain users emulate how they believe the game is meant to be visually represented, adjusted for their vision.</span>
+      <span>Saturation</span>
+    </div>
+    
+       <div class="vss-row">
+      <span>Screen shake effects can cause motion discomfort and nausea. Due to the brain’s struggle to process visual input properly, camera shake creates an even heightened sense of motion.</span>
+      <span>Allow players to disable screen shake for a more stable and comfortable gaming experience, without having to skip interaction cutscenes.</span>
+      <span>Screen Shake Toggle</span>
+    </div>
+
+    <div class="vss-row">
+      <span>Simulated camera sway movements can contribute to dizziness and disorientation, causing symptoms like afterimages and headaches to increase.</span>
+      <span>Making the camera sway toggable reduces movement intensity and reduces motion-related discomfort.</span>
+      <span>Camera Motion Toggle</span>
+    </div>
+
+    <div class="vss-row">
+      <span>Flashing effects in games can greatly cause visual irritation because of the heighted likelihood of an afterimage remaining for seconds after, due to the brightness and unexpectedness of the flash.</span>
+      <span>Allowing flashing effects to be disabled creates a safer experience and visual clarity for VSS users.</span>
+      <span>Flashing Effects Toggle</span>
+    </div>
+
 
   </div>
 
 </section>
 
+<br>
+<br>
+
 <footer>
-  <p>GDV210 People & Games — Accessibility UI Prototype</p>
+<section class="footer">
+  <p>
+      <i> Thank you for reading through! I hope this simulation and information can help others understand a snippet of the importance of accessibitly in gaming. - Kay (VSS Player) </i>
+    </p>
+    </section>
 </footer>
+
 
 <script src="script.js"></script>
 
