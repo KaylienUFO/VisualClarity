@@ -17,15 +17,8 @@ const presetButtons = document.querySelectorAll(".preset-btn");
 const advancedToggle = document.getElementById("advancedToggle");
 const settingsPanel = document.querySelector(".settings-panel");
 
-/* ===================== */
-/* GLOBAL STATE */
-/* ===================== */
 
 let advancedLocked = true;
-
-/* ===================== */
-/* HUD IMAGE SWITCHING */
-/* ===================== */
 
 function showDefault() {
   document.getElementById("hudImage").src = "default.png";
@@ -35,9 +28,6 @@ function showVSS() {
   document.getElementById("hudImage").src = "vss.png";
 }
 
-/* ===================== */
-/* TOGGLE VSS MODE */
-/* ===================== */
 
 function toggleVSS() {
 
@@ -90,10 +80,6 @@ function toggleVSS() {
   }
 }
 
-/* ===================== */
-/* MAIN VSS UPDATE */
-/* ===================== */
-
 function updateVSS() {
 
   if (!document.body.classList.contains("vss-mode")) return;
@@ -126,9 +112,6 @@ document.querySelector(".page-content").style.filter = `
   document.body.style.setProperty("--floaters", floaters * intensity);
 }
 
-/* ===================== */
-/* SLIDERS */
-/* ===================== */
 
 [
   vssSlider,
@@ -140,10 +123,6 @@ document.querySelector(".page-content").style.filter = `
 ].forEach(slider => {
   slider.addEventListener("input", updateVSS);
 });
-
-/* ===================== */
-/* START STATE */
-/* ===================== */
 
 noiseOverlay.style.display = "none";
 
@@ -157,9 +136,6 @@ noiseOverlay.style.display = "none";
   slider.disabled = true;
 });
 
-/* ===================== */
-/* ADVANCED TOGGLE (SAFE LOCK) */
-/* ===================== */
 
 advancedToggle.addEventListener("change", () => {
 
@@ -178,9 +154,6 @@ document.querySelectorAll(".advanced-only").forEach(el => {
   el.style.display = "none";
 });
 
-/* ===================== */
-/* PRESET SYSTEM (FIXED ACTIVE STATE) */
-/* ===================== */
 
 function applyPreset(type, event) {
   settingsPanel.classList.remove(
@@ -234,15 +207,10 @@ settingsPanel.classList.add(`preset-${type}`);
   const values = presets[type];
   if (!values) return;
 
-  // apply values (if sliders exist later)
   Object.entries(values).forEach(([id, val]) => {
     const el = document.getElementById(id);
     if (el) el.value = val;
   });
-
-  /* ===================== */
-  /* FIXED ACTIVE BUTTON STATE */
-  /* ===================== */
 
   presetButtons.forEach(btn => btn.classList.remove("active"));
 
@@ -252,10 +220,6 @@ settingsPanel.classList.add(`preset-${type}`);
       : document.querySelector(`.preset-btn[onclick*="${type}"]`);
 
   if (clicked) clicked.classList.add("active");
-
-  /* ===================== */
-  /* LOCK SYSTEM */
-  /* ===================== */
 
   if (type === "default") {
 
@@ -285,10 +249,6 @@ settingsPanel.classList.add(`preset-${type}`);
   console.log("Preset applied:", type);
 }
 
-/* ===================== */
-/* ACCORDION (LOCKED CLEANLY) */
-/* ===================== */
-
 document.querySelectorAll(".accordion-header").forEach(header => {
   header.addEventListener("click", () => {
 
@@ -305,7 +265,6 @@ document.querySelectorAll(".accordion-header").forEach(header => {
   });
 });
 
-/*movement animation*/
 function animateVSS() {
   updateVSS();
   requestAnimationFrame(animateVSS);
